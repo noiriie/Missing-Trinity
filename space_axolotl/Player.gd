@@ -5,6 +5,9 @@ export var gravity = 20
 const ACCELERATION = 50
 export var speed = 400
 export var jump_height = -550
+export var inertia = 100
+
+signal dead
 
 var motion = Vector2();
 
@@ -33,8 +36,14 @@ func _physics_process(delta):
 		if Input.is_action_just_pressed("ui_up"):
 			motion.y = jump_height
 	
-	motion = move_and_slide(motion, UP)
-	pass
+	motion = move_and_slide(motion, UP, false, 4, PI/4, false)
+	# set infinite inertia to false ^
+	
+	# process multiple collisions
+	for index in get_slide_count():
+		var collision = get_slide_collision(index)
+		if collision.collider.is_in_group("bodies"):
+			collision.collider.apply_central_impulse(-collision.normal * inertia)
 
 
 func _on_PlayerHitbox_body_entered(body):

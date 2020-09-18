@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://tilesheet.png" type="Texture" id=2]
 [ext_resource path="res://Box.tscn" type="PackedScene" id=3]
 [ext_resource path="res://spike.png" type="Texture" id=4]
+[ext_resource path="res://Main.gd" type="Script" id=5]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
@@ -442,6 +443,7 @@ points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
 0/z_index = 0
 
 [node name="Main" type="Node2D"]
+script = ExtResource( 5 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 714.693, 191.783 )
@@ -460,3 +462,4 @@ collision_layer = 2
 collision_mask = 2
 format = 1
 tile_data = PoolIntArray( 458752, 0, 0, 458753, 0, 0, 458754, 0, 0, 458755, 0, 0, 458756, 0, 0 )
+[connection signal="dead" from="Player" to="." method="_on_Player_dead"]

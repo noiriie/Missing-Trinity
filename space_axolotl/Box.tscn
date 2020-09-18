@@ -4,7 +4,6 @@
 [ext_resource path="res://Box.gd" type="Script" id=2]
 
 [sub_resource type="PhysicsMaterial" id=1]
-friction = 20.0
 rough = true
 absorbent = true
 
@@ -13,7 +12,7 @@ absorbent = true
 [node name="Box Scene" type="Node2D"]
 
 [node name="Box" type="RigidBody2D" parent="."]
-mass = 40.0
+mass = 2.0
 physics_material_override = SubResource( 1 )
 gravity_scale = 10.0
 script = ExtResource( 2 )
