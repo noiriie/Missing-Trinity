@@ -35,3 +35,9 @@ func _physics_process(delta):
 	
 	motion = move_and_slide(motion, UP)
 	pass
+
+
+func _on_PlayerHitbox_body_entered(body):
+	if body.name == "Traps":
+		emit_signal("dead")
+	
