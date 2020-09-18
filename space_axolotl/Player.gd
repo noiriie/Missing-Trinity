@@ -5,9 +5,9 @@ export var gravity = 20
 const ACCELERATION = 50
 export var speed = 400
 export var jump_height = -550
+export var inertia = 100 #helps with rigid body interactions
 
 var motion = Vector2();
-
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -33,5 +33,18 @@ func _physics_process(delta):
 		if Input.is_action_just_pressed("ui_up"):
 			motion.y = jump_height
 	
-	motion = move_and_slide(motion, UP)
+	motion = move_and_slide(motion, UP, false, 4, PI/4, false) #4 and PI/4 are placeholders. false turns off player infinite inertia
+	
+	#Use player inertia to interact with objects
+	for index in get_slide_count():
+		var collision = get_slide_collision(index)
+		if collision.collider.is_in_group("bodies"):
+			collision.collider.apply_central_impulse(-collision.normal*inertia)
+	
 	pass
+
+
+func _on_PlayerHitbox_body_entered(body):
+	if body.name == "Traps":
+		emit_signal("dead")
+	
