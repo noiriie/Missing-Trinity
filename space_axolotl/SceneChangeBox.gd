@@ -1,9 +1,6 @@
-extends Node2D
+extends Area2D
 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+export var target_scene = "Main"
 
 
 # Called when the node enters the scene tree for the first time.
@@ -16,7 +13,7 @@ func _ready():
 #	pass
 
 
-func _on_Player_dead():
-	print("PLAYER DIED")
-	get_tree().reload_current_scene()
-	#queue_free()
+func _on_SceneChangeBox_body_entered(body):
+	print("test")
+	if body.name == "PlayerHitbox":
+		print("SCENE CHANGE")

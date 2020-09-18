@@ -50,3 +50,8 @@ func _on_PlayerHitbox_body_entered(body):
 	if body.name == "Traps":
 		emit_signal("dead")
 	
+
+
+func _on_PlayerHitbox_area_entered(area):
+	if area.name == "SceneChangeBox":
+		print(area.target_scene)
