@@ -1,7 +1,7 @@
 extends RigidBody2D
 
 const UP = Vector2(0, -1)
-export var gravity = 40
+export var gravity = 300
 
 var motion = Vector2();
 
@@ -13,6 +13,3 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
 	motion.y += gravity
-	
-	if motion.x > 0:
-		motion.x = motion.x*0.75
