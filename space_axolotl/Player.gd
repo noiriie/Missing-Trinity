@@ -7,6 +7,7 @@ export var speed = 400
 export var jump_height = -640
 export var inertia = 100
 export var max_dead_time = 0.6
+export var pushes_buttons = true
 
 signal dying
 signal dead
@@ -24,7 +25,8 @@ func _ready():
 	facing = Vector2(1, 0)
 	dying = false
 	holding = null
-	add_to_group("pushes_buttons")
+	if pushes_buttons:
+		add_to_group("pushes_buttons")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
