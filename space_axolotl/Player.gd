@@ -54,7 +54,7 @@ func _physics_process(delta):
 	motion.y += gravity
 	
 	# process interacting
-	if Input.is_action_just_pressed("ui_accept"):
+	if Input.is_action_just_pressed("ui_down"):
 		if holding:
 			var unhold_pos = position + $PlayerInteractBox.position + 96*facing
 			unhold_pos.y += -32
@@ -91,7 +91,7 @@ func _physics_process(delta):
 		motion.x = lerp(motion.x, 0, .2)
 	
 	if is_on_floor():
-		if Input.is_action_just_pressed("ui_up"):
+		if Input.is_action_just_pressed("ui_accept"):
 			$AnimatedSprite.play("jump")
 			motion.y = jump_height
 	

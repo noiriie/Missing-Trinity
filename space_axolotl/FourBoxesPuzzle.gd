@@ -35,3 +35,7 @@ func _on_Button_released():
 	buttons_pressed -= 1
 	print(buttons_pressed, "unpressed")
 	update_platform()
+
+
+func _on_Player_dead():
+	get_tree().reload_current_scene()
