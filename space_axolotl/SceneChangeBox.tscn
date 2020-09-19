@@ -9,6 +9,9 @@ extents = Vector2( 22, 37 )
 collision_layer = 2
 collision_mask = 2
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
