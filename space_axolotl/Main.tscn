@@ -38,9 +38,6 @@ format = 1
 tile_data = PoolIntArray( 458755, 2, 0, 458756, 2, 0, 458757, 2, 0, 458758, 2, 0, 458759, 2, 0, 458760, 2, 0, 458761, 2, 0 )
 
 [node name="SceneChangeBox" parent="." instance=ExtResource( 6 )]
-position = Vector2( 32.9156, 61.1758 )
-target_scene = "TestScene"
-
-[node name="Box2" parent="." instance=ExtResource( 3 )]
-position = Vector2( 720.813, 258.959 )
+position = Vector2( 28.9111, 313.461 )
+target_scene = "DesertScene"
 [connection signal="dead" from="Player" to="." method="_on_Player_dead"]

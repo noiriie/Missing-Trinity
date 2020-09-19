@@ -1,4 +1,4 @@
-extends Node2D
+extends Area2D
 
 signal pressed
 signal released
@@ -18,7 +18,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	var count = 0
-	for body in $PlayerInteractBox.get_overlapping_bodies():
+	for body in get_overlapping_bodies():
 		if body.is_in_group("pushes_buttons") and (required_name == "" or body.name == required_name):
 			count = count + 1
 	
