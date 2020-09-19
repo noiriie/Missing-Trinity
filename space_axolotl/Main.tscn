@@ -418,7 +418,7 @@ points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
 26/shapes = [  ]
 26/z_index = 0
 
-[sub_resource type="ConvexPolygonShape2D" id=7]
+[sub_resource type="ConvexPolygonShape2D" id=5]
 points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
 
 [sub_resource type="TileSet" id=6]
@@ -432,14 +432,14 @@ points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
 0/navigation_offset = Vector2( 0, 0 )
 0/shape_offset = Vector2( 0, 0 )
 0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-0/shape = SubResource( 7 )
+0/shape = SubResource( 5 )
 0/shape_one_way = false
 0/shape_one_way_margin = 1.0
 0/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 7 ),
+"shape": SubResource( 5 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 0/z_index = 0
@@ -466,6 +466,9 @@ tile_data = PoolIntArray( 393216, 2, 0, 393217, 2, 0, 393218, 3, 0, 393226, 1, 0
 
 [node name="Box" parent="." instance=ExtResource( 3 )]
 position = Vector2( 715.76, 343.704 )
+
+[node name="Box2" parent="." instance=ExtResource( 3 )]
+position = Vector2( 841.76, 354.704 )
 
 [node name="Traps" type="TileMap" parent="."]
 tile_set = SubResource( 6 )
