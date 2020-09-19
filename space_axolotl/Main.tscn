@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://tilesheet.png" type="Texture" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://spike.png" type="Texture" id=4]
 [ext_resource path="res://Main.gd" type="Script" id=5]
 [ext_resource path="res://SceneChangeBox.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Ice.jpg" type="Texture" id=7]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
@@ -446,25 +447,34 @@ points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
 [node name="Main" type="Node2D"]
 script = ExtResource( 5 )
 
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.1, 0.1 )
+motion_mirroring = Vector2( 1920, 1080 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+texture = ExtResource( 7 )
+
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 714.693, 191.783 )
+position = Vector2( 878.803, 323.785 )
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource( 4 )
 format = 1
-tile_data = PoolIntArray( 393216, 2, 0, 393217, 3, 0, 393221, 1, 0, 393222, 2, 0, 393223, 2, 0, 393224, 2, 0, 393225, 2, 0, 393226, 2, 0, 393227, 2, 0, 393228, 2, 0, 393229, 2, 0, 393230, 2, 0, 393231, 2, 0, 458752, 0, 0, 458753, 0, 0, 458757, 0, 0, 458758, 0, 0, 458759, 0, 0, 458760, 0, 0, 458761, 0, 0, 458762, 0, 0, 458763, 0, 0, 458764, 0, 0, 458765, 0, 0, 458766, 0, 0, 458767, 0, 0, 524293, 0, 0, 524294, 0, 0, 524295, 0, 0, 524296, 0, 0, 524297, 0, 0, 524298, 0, 0, 524299, 0, 0, 524300, 0, 0, 524301, 0, 0, 524302, 0, 0, 524303, 0, 0, 589829, 0, 0, 589830, 0, 0, 589831, 0, 0, 589832, 0, 0, 589833, 0, 0, 589834, 0, 0, 589835, 0, 0, 589836, 0, 0, 589837, 0, 0, 589838, 0, 0, 589839, 0, 0 )
+tile_data = PoolIntArray( 393216, 2, 0, 393217, 2, 0, 393218, 3, 0, 393226, 1, 0, 393227, 2, 0, 393228, 2, 0, 393229, 2, 0, 393230, 2, 0, 393231, 2, 0, 458752, 0, 0, 458753, 0, 0, 458754, 0, 0, 458762, 0, 0, 458763, 0, 0, 458764, 0, 0, 458765, 0, 0, 458766, 0, 0, 458767, 0, 0, 524288, 0, 0, 524289, 0, 0, 524290, 0, 0, 524291, 0, 0, 524292, 0, 0, 524293, 0, 0, 524294, 0, 0, 524295, 0, 0, 524296, 0, 0, 524297, 0, 0, 524298, 0, 0, 524299, 0, 0, 524300, 0, 0, 524301, 0, 0, 524302, 0, 0, 524303, 0, 0, 589824, 0, 0, 589825, 0, 0, 589826, 0, 0, 589827, 0, 0, 589828, 0, 0, 589829, 0, 0, 589830, 0, 0, 589831, 0, 0, 589832, 0, 0, 589833, 0, 0, 589834, 0, 0, 589835, 0, 0, 589836, 0, 0, 589837, 0, 0, 589838, 0, 0, 589839, 0, 0 )
 
 [node name="Box" parent="." instance=ExtResource( 3 )]
-position = Vector2( 491, 245 )
+position = Vector2( 715.76, 343.704 )
 
 [node name="Traps" type="TileMap" parent="."]
 tile_set = SubResource( 6 )
 collision_layer = 2
 collision_mask = 2
 format = 1
-tile_data = PoolIntArray( 458754, 0, 0, 458755, 0, 0, 458756, 0, 0 )
+tile_data = PoolIntArray( 458755, 0, 0, 458756, 0, 0, 458757, 0, 0, 458758, 0, 0, 458759, 0, 0, 458760, 0, 0, 458761, 0, 0 )
 
 [node name="SceneChangeBox" parent="." instance=ExtResource( 6 )]
-position = Vector2( 26.9695, 331.126 )
+position = Vector2( 32.9156, 61.1758 )
 target_scene = "TestScene"
 [connection signal="dead" from="Player" to="." method="_on_Player_dead"]
