@@ -19,9 +19,9 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	print(position)
-	print("test ", $CollisionShape2D.position)
+#func _process(delta):
+	#print(position)
+	#print("test ", $CollisionShape2D.position)
 	
 func _integrate_forces(state):
 	#print(state.transform)
@@ -37,7 +37,7 @@ func _integrate_forces(state):
 		
 func set_held_pos(pos):
 	held_pos = pos
-	#position = pos
+	position = pos
 	
 func interact_begin():
 	held = true
@@ -45,6 +45,6 @@ func interact_begin():
 	
 func interact_end(pos):
 	held = false
-	#position = pos
+	position = pos
 	unheld_pos = pos
 	$CollisionShape2D.disabled = false
