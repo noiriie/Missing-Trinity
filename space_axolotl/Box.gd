@@ -13,6 +13,7 @@ func _ready():
 	held = false
 	held_pos = position
 	unheld_pos = null
+	can_sleep = false
 	add_to_group("bodies")
 	add_to_group("interactable")
 
@@ -26,17 +27,17 @@ func _integrate_forces(state):
 	#print(state.transform)
 	if held:
 		state.transform = Transform2D(0, held_pos)
+		state.linear_velocity = Vector2(0, 0)
 	if unheld_pos:
-		#$CollisionShape2D.position = unheld_pos
-		state.transform = Transform2D(0, unheld_pos)
-		state.linear_velocity = Vector2(0, 1)
+		state.set_transform(Transform2D(0, unheld_pos))
+		state.linear_velocity = Vector2(0, 0)
+		#state.set_angular_velocity(Vector2(0, 0))
 		#state.angular_velocity = Vector2(0, 0)
 		unheld_pos = null
 		
 func set_held_pos(pos):
 	held_pos = pos
-	position = pos
-	#$CollisionShape2D.position = pos
+	#position = pos
 	
 func interact_begin():
 	held = true
@@ -44,7 +45,6 @@ func interact_begin():
 	
 func interact_end(pos):
 	held = false
-	$CollisionShape2D.disabled = false
-	update()
-	position = pos
+	#position = pos
 	unheld_pos = pos
+	$CollisionShape2D.disabled = false

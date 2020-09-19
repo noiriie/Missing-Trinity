@@ -53,9 +53,9 @@ func _physics_process(delta):
 	# process interacting
 	if Input.is_action_just_pressed("ui_accept"):
 		if holding:
-			holding.position = position + $PlayerInteractBox.position + 64*facing
-			holding.position.y += -32
-			holding.interact_end(holding.position)
+			var unhold_pos = position + $PlayerInteractBox.position + 96*facing
+			unhold_pos.y += -32
+			holding.interact_end(unhold_pos)
 			holding = null
 		else:
 			for body in $PlayerInteractBox.get_overlapping_bodies():
@@ -69,21 +69,34 @@ func _physics_process(delta):
 	
 	if Input.is_action_pressed("ui_right"):
 		motion.x = speed #min(motion.x + ACCELERATION, MAX_SPEED)
+		$AnimatedSprite.flip_h = true
+		if is_on_floor():
+			$AnimatedSprite.play("run")
 		$PlayerInteractBox.set_scale(Vector2(1, 1))
 		facing.x = 1
 	elif Input.is_action_pressed("ui_left"):
 		motion.x = -speed #max(motion.x - ACCELERATION, -MAX_SPEED)
+		$AnimatedSprite.flip_h = false
+		if is_on_floor():
+			$AnimatedSprite.play("run")
 		$PlayerInteractBox.set_scale(Vector2(-1, 1))
 		facing.x = -1
 	else:
+		if is_on_floor():
+			$AnimatedSprite.play("idle")
+			
 		motion.x = lerp(motion.x, 0, .2)
 	
 	if is_on_floor():
 		if Input.is_action_just_pressed("ui_up"):
+			$AnimatedSprite.play("jump")
 			motion.y = jump_height
 	
 	motion = move_and_slide(motion, UP, false, 4, PI/4, false)
 	# set infinite inertia to false ^
+	
+	if motion.y > 1:
+		$AnimatedSprite.play("fall")
 	
 	# process multiple collisions
 	for index in get_slide_count():
