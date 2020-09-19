@@ -24,6 +24,7 @@ func _ready():
 	facing = Vector2(1, 0)
 	dying = false
 	holding = null
+	add_to_group("pushes_buttons")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

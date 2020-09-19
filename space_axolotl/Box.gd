@@ -16,6 +16,7 @@ func _ready():
 	can_sleep = false
 	add_to_group("bodies")
 	add_to_group("interactable")
+	add_to_group("pushes_buttons")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

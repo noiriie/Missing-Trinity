@@ -35,13 +35,13 @@ animations = [ {
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 24, 48 )
+extents = Vector2( 32, 64 )
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 24, 48 )
+extents = Vector2( 32, 64 )
 
 [sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 23.211, 47.8598 )
+extents = Vector2( 32, 64 )
 
 [node name="Player" type="KinematicBody2D"]
 script = ExtResource( 1 )
@@ -50,14 +50,9 @@ __meta__ = {
 }
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-scale = Vector2( 0.25, 0.25 )
+scale = Vector2( 0.333, 0.333 )
 frames = SubResource( 1 )
 animation = "fall"
-
-[node name="Polygon2D" type="Polygon2D" parent="."]
-visible = false
-color = Color( 0.992157, 0.0470588, 0.0235294, 1 )
-polygon = PoolVector2Array( -24, 48, 24, 48, 24, -48, -24, -48 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 2 )
@@ -77,11 +72,7 @@ collision_layer = 3
 collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerInteractBox"]
-position = Vector2( 48, 0 )
+position = Vector2( 66, 0 )
 shape = SubResource( 4 )
-
-[node name="Polygon2D" type="Polygon2D" parent="PlayerInteractBox/CollisionShape2D"]
-offset = Vector2( 48, 0 )
-polygon = PoolVector2Array( -56.5559, -7.3811, -56.5559, 10.4772, -41.0787, 8.88976, -39.4913, -6.98425 )
 [connection signal="area_entered" from="PlayerHitbox" to="." method="_on_PlayerHitbox_area_entered"]
 [connection signal="body_entered" from="PlayerHitbox" to="." method="_on_PlayerHitbox_body_entered"]
