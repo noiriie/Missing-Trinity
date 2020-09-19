@@ -20,7 +20,12 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
+func _process(delta):
+	for body in $Below.get_overlapping_bodies():
+		if body.is_in_group("interactable"):
+			mass = 20
+		else:
+			mass = 5
 	#print(position)
 	#print("test ", $CollisionShape2D.position)
 	
