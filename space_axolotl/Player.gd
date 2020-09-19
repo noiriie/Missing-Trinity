@@ -14,11 +14,16 @@ signal dead
 var motion = Vector2();
 var dying = false
 var dying_time = 0
+var facing = Vector2()
+
+var holding = null
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	facing = Vector2(1, 0)
 	dying = false
+	holding = null
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -37,7 +42,7 @@ func _physics_process(delta):
 		motion.x = 0
 		motion.y /= exp(dying_time*2)
 		dying_time += delta
-		if dying_time >= max_dead_time:
+		if dying_time >= max_dead_time: 
 			emit_signal("dead")
 		else:
 			motion = move_and_slide(motion, UP)
@@ -47,18 +52,29 @@ func _physics_process(delta):
 	
 	# process interacting
 	if Input.is_action_just_pressed("ui_accept"):
-		for body in $PlayerInteractBox.get_overlapping_bodies():
-			if body == self:
-				continue
-			
-			# TODO: do something here, pick up boxes, enter doors, etc.
+		if holding:
+			holding.position = position + $PlayerInteractBox.position + 64*facing
+			holding.position.y += -32
+			holding.interact_end(holding.position)
+			holding = null
+		else:
+			for body in $PlayerInteractBox.get_overlapping_bodies():
+				if body == self:
+					continue
+				
+				if body.is_in_group("interactable") and not holding:
+					holding = body
+					holding.interact_begin()
+					break
 	
 	if Input.is_action_pressed("ui_right"):
 		motion.x = speed #min(motion.x + ACCELERATION, MAX_SPEED)
 		$PlayerInteractBox.set_scale(Vector2(1, 1))
+		facing.x = 1
 	elif Input.is_action_pressed("ui_left"):
 		motion.x = -speed #max(motion.x - ACCELERATION, -MAX_SPEED)
 		$PlayerInteractBox.set_scale(Vector2(-1, 1))
+		facing.x = -1
 	else:
 		motion.x = lerp(motion.x, 0, .2)
 	
@@ -74,6 +90,10 @@ func _physics_process(delta):
 		var collision = get_slide_collision(index)
 		if collision.collider.is_in_group("bodies"):
 			collision.collider.apply_central_impulse(-collision.normal * inertia)
+			
+	# if holding something, let it move with us
+	if holding:
+		holding.set_held_pos(Vector2(position.x, position.y - 64))
 
 
 func _on_PlayerHitbox_body_entered(body):
