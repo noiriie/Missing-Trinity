@@ -4,7 +4,7 @@ const UP = Vector2(0, -1)
 export var gravity = 20
 const ACCELERATION = 50
 export var speed = 400
-export var jump_height = -550
+export var jump_height = -640
 export var inertia = 100
 export var max_dead_time = 0.6
 
