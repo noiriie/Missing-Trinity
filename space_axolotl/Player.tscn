@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Player.gd" type="Script" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
@@ -16,6 +16,9 @@ extents = Vector2( 24, 48 )
 
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 24, 48 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 23.211, 47.8598 )
 
 [node name="Player" type="KinematicBody2D"]
 script = ExtResource( 1 )
@@ -43,5 +46,17 @@ shape = SubResource( 3 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
+
+[node name="PlayerInteractBox" type="Area2D" parent="."]
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerInteractBox"]
+position = Vector2( 48, 0 )
+shape = SubResource( 4 )
+
+[node name="Polygon2D" type="Polygon2D" parent="PlayerInteractBox/CollisionShape2D"]
+offset = Vector2( 48, 0 )
+polygon = PoolVector2Array( -56.5559, -7.3811, -56.5559, 10.4772, -41.0787, 8.88976, -39.4913, -6.98425 )
 [connection signal="area_entered" from="PlayerHitbox" to="." method="_on_PlayerHitbox_area_entered"]
 [connection signal="body_entered" from="PlayerHitbox" to="." method="_on_PlayerHitbox_body_entered"]

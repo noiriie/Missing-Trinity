@@ -30,7 +30,6 @@ func _start_dying():
 	dying = true
 	dying_time = 0
 
-
 func _physics_process(delta):
 	if dying:
 		# play slow falling animation
@@ -46,10 +45,20 @@ func _physics_process(delta):
 		
 	motion.y += gravity
 	
+	# process interacting
+	if Input.is_action_just_pressed("ui_accept"):
+		for body in $PlayerInteractBox.get_overlapping_bodies():
+			if body == self:
+				continue
+			
+			# TODO: do something here, pick up boxes, enter doors, etc.
+	
 	if Input.is_action_pressed("ui_right"):
 		motion.x = speed #min(motion.x + ACCELERATION, MAX_SPEED)
+		$PlayerInteractBox.set_scale(Vector2(1, 1))
 	elif Input.is_action_pressed("ui_left"):
 		motion.x = -speed #max(motion.x - ACCELERATION, -MAX_SPEED)
+		$PlayerInteractBox.set_scale(Vector2(-1, 1))
 	else:
 		motion.x = lerp(motion.x, 0, .2)
 	
