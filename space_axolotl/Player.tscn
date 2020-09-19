@@ -35,7 +35,7 @@ animations = [ {
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 28, 60 )
+extents = Vector2( 26, 60 )
 
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 32, 64 )
@@ -50,7 +50,6 @@ __meta__ = {
 }
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-scale = Vector2( 0.333, 0.333 )
 frames = SubResource( 1 )
 animation = "fall"
 
