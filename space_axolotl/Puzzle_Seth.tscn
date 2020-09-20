@@ -36,15 +36,19 @@ texture = ExtResource( 13 )
 
 [node name="Box" parent="." instance=ExtResource( 2 )]
 position = Vector2( 2.75394, 347.385 )
+texture = "BoxIce"
 
 [node name="Box2" parent="." instance=ExtResource( 2 )]
 position = Vector2( -105.244, 350.048 )
+texture = "BoxIce"
 
 [node name="Box3" parent="." instance=ExtResource( 2 )]
 position = Vector2( 181.523, 411.441 )
+texture = "BoxIce"
 
 [node name="Box4" parent="." instance=ExtResource( 2 )]
 position = Vector2( -391.162, 415.648 )
+texture = "BoxIce"
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( -539.199, 253.836 )
