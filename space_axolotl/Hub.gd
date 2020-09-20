@@ -37,6 +37,8 @@ func _ready():
 		$Dialogue.set_face(faces[1][0])
 		$SceneChangeBox.target_scene = ""
 		$SceneChangeBox2.target_scene = "ShipInterior"
+		$Eva.visible = true
+		$Noah.visible = true
 	
 
 

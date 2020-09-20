@@ -66,4 +66,4 @@ position = Vector2( 2080, 448 )
 target_scene = "FourBoxesPuzzle"
 
 [node name="SceneChangeBox2" parent="." instance=ExtResource( 9 )]
-position = Vector2( 464, 360 )
+position = Vector2( 352, 368 )

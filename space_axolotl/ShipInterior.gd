@@ -8,12 +8,21 @@ var dialogue = [
 	],
 	[
 		"I can’t remember anything about how we crashed. At least these little creatures are okay."
+	],
+	[
+		"I need to repair the engine. Good thing I wasn't injured in the crash.\nIf it wasn't for me, we wouldn't be able to fix the ship. I'm the only one who knows how the singularity thruster works.",
+		"I'm the only one who knows how the singularity thruster works...",
+		"This wasn't an engine malfunction. This was sabotage. I sabotaged the engine.",
+		"I... remember. We’re bringing the celestial axolotls back to Earth to be dissected.\nThey don't deserve that... I damaged the engine to crash the ship.",
+		"I was going to free the axolotls, but now that Captain Noah and Dr. Eva are back, I don't have a chance.",
+		"Should I repair the ship and bring the axolotls back to Earth to be dissected?\nOr should I destroy the ship permanently, stranding us on the planet forever?"
 	]
 ]
 
 var faces = [
 	["Jude3", "Jude2", "Jude0"],
-	["Jude1"]
+	["Jude1"],
+	["Jude0", "Jude0", "Jude2", "Jude3", "Jude0", "Jude0"]
 ]
 
 var dialogue_section = 0
@@ -23,14 +32,20 @@ var dialogue_index = 0
 func _ready():
 	$Axolotls.play("default")
 	if not Global.has_thruster:
-		$ShipNoah.visible = false
-		$ShipEva.visible = false
-		
 		dialogue_index = 0
 		$Player.immobile = true
 		$Dialogue.set_visible(true)
 		$Dialogue.set_text(dialogue[0][0])
 		$Dialogue.set_face(faces[0][0])
+	else:
+		dialogue_section = 2
+		dialogue_index = 0
+		$Player.immobile = true
+		$Dialogue.set_visible(true)
+		$Dialogue.set_text(dialogue[2][0])
+		$Dialogue.set_face(faces[2][0])
+		$SceneChangeBox.target_scene = "StayEnd1a"
+		$SceneChangeBox2.target_scene = "LeaveEnd1a"
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
