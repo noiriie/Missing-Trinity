@@ -1,16 +1,23 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://DesertTextures.tres" type="TileSet" id=2]
 [ext_resource path="res://Box.tscn" type="PackedScene" id=3]
 [ext_resource path="res://CoveTilesNew.tres" type="TileSet" id=4]
-[ext_resource path="res://Main.gd" type="Script" id=5]
+[ext_resource path="res://CliffPuzzle.gd" type="Script" id=5]
 [ext_resource path="res://SceneChangeBox.tscn" type="PackedScene" id=6]
 [ext_resource path="res://CoveDesat.jpg" type="Texture" id=7]
+[ext_resource path="res://ThrusterTexture.png" type="Texture" id=8]
+[ext_resource path="res://Dialogue.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Button.tscn" type="PackedScene" id=11]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 63.5696, 28.7653 )
 
 [node name="CliffPuzzle" type="Node2D"]
 script = ExtResource( 5 )
+
+[node name="Dialogue" parent="." instance=ExtResource( 9 )]
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
@@ -75,8 +82,21 @@ collision_layer = 0
 collision_mask = 0
 format = 1
 tile_data = PoolIntArray( -65519, 2, 0 )
+
+[node name="Thruster" type="Area2D" parent="."]
+position = Vector2( 1477.11, 297.56 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Thruster"]
+texture = ExtResource( 8 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Thruster"]
+shape = SubResource( 1 )
 [connection signal="dead" from="Player" to="." method="_on_Player_dead"]
 [connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
 [connection signal="released" from="Button" to="." method="_on_Button_released"]
 [connection signal="pressed" from="Button2" to="." method="_on_Button_pressed"]
 [connection signal="released" from="Button2" to="." method="_on_Button_released"]
+[connection signal="body_entered" from="Thruster" to="." method="_on_Thruster_body_entered"]
