@@ -17,5 +17,5 @@ func _ready():
 
 
 func _on_TextureButton_pressed():
-	#Jump to first scene
-	pass # Replace with function body.
+	Global.has_thruster = false
+	get_tree().change_scene("res://ShipInterior.tscn")
