@@ -21,4 +21,4 @@ func set_visible(visible):
 	$MarginContainer.visible = visible
 	
 func set_face(face):
-	$MarginContainer/VBoxContainer/HBoxContainer/Panel/MarginContainer/HBoxContainer/TextureRect.texture = "res://dialogue" + face + ".png"
+	$MarginContainer/VBoxContainer/HBoxContainer/Panel/MarginContainer/HBoxContainer/TextureRect.texture = load("res://dialogue" + face + ".png")
