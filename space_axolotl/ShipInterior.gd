@@ -13,7 +13,7 @@ var dialogue = [
 		"I need to repair the engine. Good thing I wasn't injured in the crash.\nIf it wasn't for me, we wouldn't be able to fix the ship. I'm the only one who knows how the singularity thruster works.",
 		"I'm the only one who knows how the singularity thruster works...",
 		"This wasn't an engine malfunction. This was sabotage. I sabotaged the engine.",
-		"I... remember. We’re bringing the celestial axolotls back to Earth to be dissected.\nThey don't deserve that... I damaged the engine to crash the ship.",
+		"I... remember. We're bringing the celestial axolotls back to Earth to be dissected.\nThey don't deserve that... I damaged the engine to crash the ship.",
 		"I was going to free the axolotls, but now that Captain Noah and Dr. Eva are back, I don't have a chance.",
 		"Should I repair the ship and bring the axolotls back to Earth to be dissected?\nOr should I destroy the ship permanently, stranding us on the planet forever?"
 	]
@@ -32,6 +32,7 @@ var dialogue_index = 0
 func _ready():
 	$Axolotls.play("default")
 	$SaveAxolotls.visible = false
+	$RepairShip.visible = false
 	if not Global.has_thruster:
 		dialogue_index = 0
 		$Player.immobile = true
@@ -64,6 +65,7 @@ func _process(delta):
 				get_tree().change_scene("res://Hub.tscn")
 			if dialogue_section == 2:
 				$SaveAxolotls.visible = true
+				$RepairShip.visible = true
 
 
 func _on_AxolotlTrigger_body_entered(body):
