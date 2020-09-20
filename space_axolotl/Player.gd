@@ -54,7 +54,7 @@ func _physics_process(delta):
 	motion.y += gravity
 	
 	# process interacting
-	if Input.is_action_just_pressed("ui_down"):
+	if Input.is_action_just_pressed("ui_accept"):
 		if holding:
 			var unhold_pos = position + $PlayerInteractBox.position + 96*facing
 			unhold_pos.y += -32
@@ -70,14 +70,14 @@ func _physics_process(delta):
 					holding.interact_begin()
 					break
 	
-	if Input.is_action_pressed("ui_right"):
+	if Input.is_action_pressed("ui_right") or Input.is_key_pressed(KEY_D):
 		motion.x = speed #min(motion.x + ACCELERATION, MAX_SPEED)
 		$AnimatedSprite.flip_h = true
 		if is_on_floor():
 			$AnimatedSprite.play("run")
 		$PlayerInteractBox.set_scale(Vector2(1, 1))
 		facing.x = 1
-	elif Input.is_action_pressed("ui_left"):
+	elif Input.is_action_pressed("ui_left") or Input.is_key_pressed(KEY_A):
 		motion.x = -speed #max(motion.x - ACCELERATION, -MAX_SPEED)
 		$AnimatedSprite.flip_h = false
 		if is_on_floor():
@@ -91,7 +91,7 @@ func _physics_process(delta):
 		motion.x = lerp(motion.x, 0, .2)
 	
 	if is_on_floor():
-		if Input.is_action_just_pressed("ui_accept"):
+		if Input.is_key_pressed(KEY_W) or Input.is_action_just_pressed("ui_up"):
 			$AnimatedSprite.play("jump")
 			motion.y = jump_height
 	
