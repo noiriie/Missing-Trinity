@@ -15,6 +15,11 @@ var dialogue = [
 	]
 ]
 
+var faces = [
+	["Jude0"],
+	["Jude1"]
+]
+
 var dialogue_section = 0
 var dialogue_index = 0
 
@@ -30,7 +35,7 @@ func _ready():
 	$Player.immobile = true
 	$Dialogue.set_visible(true)
 	$Dialogue.set_text(dialogue[0][0])
-
+	$Dialogue.set_face(faces[0][0])
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

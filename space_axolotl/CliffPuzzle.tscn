@@ -33,7 +33,7 @@ position = Vector2( 2.83163, -0.943878 )
 texture = ExtResource( 7 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 1252.3, 121.037 )
+position = Vector2( 78.0536, 184.033 )
 
 [node name="TileMap (Level)" type="TileMap" parent="."]
 tile_set = ExtResource( 4 )
@@ -49,7 +49,7 @@ tile_data = PoolIntArray( 524297, 0, 458754, 524298, 0, 458754, 524299, 0, 45875
 
 [node name="SceneChangeBox" parent="." instance=ExtResource( 6 )]
 position = Vector2( 1056.84, -5.8067 )
-target_scene = "TestScene"
+target_scene = "Hub"
 
 [node name="Button" parent="." instance=ExtResource( 11 )]
 position = Vector2( 1557.4, 315.852 )
@@ -60,7 +60,7 @@ position = Vector2( 1388, 315.5 )
 [node name="Boxes" type="Node2D" parent="."]
 
 [node name="Box" parent="Boxes" instance=ExtResource( 3 )]
-position = Vector2( 1540.65, 212.471 )
+position = Vector2( 392.862, 146.955 )
 
 [node name="Box2" parent="Boxes" instance=ExtResource( 3 )]
 position = Vector2( -394.472, -41.3613 )
