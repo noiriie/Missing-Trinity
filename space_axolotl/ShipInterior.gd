@@ -33,6 +33,7 @@ func _ready():
 	$Axolotls.play("default")
 	$SaveAxolotls.visible = false
 	$RepairShip.visible = false
+	$AudioStreamPlayer.play()
 	if not Global.has_thruster:
 		dialogue_index = 0
 		$Player.immobile = true

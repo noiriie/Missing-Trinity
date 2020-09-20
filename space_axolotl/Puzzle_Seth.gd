@@ -49,6 +49,7 @@ func _ready():
 	$Player.immobile = true
 	$Dialogue.set_visible(true)
 	$Dialogue.set_text(dialogue[0][0])
+	$AudioStreamPlayer.play()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
