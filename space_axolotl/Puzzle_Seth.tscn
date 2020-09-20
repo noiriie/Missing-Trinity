@@ -8,10 +8,10 @@
 [node name="Puzzle_Seth" type="Node2D"]
 
 [node name="Box" parent="." instance=ExtResource( 2 )]
-position = Vector2( 83.6976, 396.239 )
+position = Vector2( 5.58237, 325.683 )
 
 [node name="Box2" parent="." instance=ExtResource( 2 )]
-position = Vector2( 82.6381, 326.315 )
+position = Vector2( -103.83, 321.275 )
 
 [node name="Box3" parent="." instance=ExtResource( 2 )]
 position = Vector2( 180.109, 397.299 )
@@ -20,10 +20,10 @@ position = Vector2( 180.109, 397.299 )
 position = Vector2( 179.049, 317.839 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 515.958, 361.277 )
+position = Vector2( -439.063, 371.356 )
 
 [node name="Button" parent="." instance=ExtResource( 3 )]
-position = Vector2( 705.602, 434.38 )
+position = Vector2( -307.375, 411.701 )
 
 [node name="Button2" parent="." instance=ExtResource( 3 )]
 position = Vector2( 439.677, 184.347 )

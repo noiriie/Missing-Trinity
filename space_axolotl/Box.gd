@@ -15,7 +15,7 @@ func _ready():
 	unheld_pos = null
 	can_sleep = false
 	add_to_group("bodies")
-	add_to_group("interactable")
+	add_to_group("boxes")
 	add_to_group("pushes_buttons")
 
 

@@ -13,6 +13,7 @@ export var required_name = ""
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pressed = false
+	$Sprite.play("up")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -26,7 +27,9 @@ func _process(delta):
 		if not pressed:
 			emit_signal("pressed")
 		pressed = true
+		$Sprite.play("down")
 	else:
 		if pressed:
 			emit_signal("released")
 		pressed = false
+		$Sprite.play("up")
