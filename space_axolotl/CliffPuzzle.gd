@@ -73,6 +73,7 @@ func _on_Player_dead():
 func _on_Thruster_body_entered(body):
 	if body.name == "Player":
 		$Thruster.visible = false
+		Global.has_thruster = true
 
 
 func _on_Dialogue2_body_entered(body):
