@@ -20,5 +20,5 @@ func set_text(text):
 func set_visible(visible):
 	$MarginContainer.visible = visible
 	
-#func set_face():
-#	$MarginContainer/VBoxContainer/HBoxContainer/Panel/MarginContainer/HBoxContainer/TextureRect.texture = 
+func set_face(face):
+	$MarginContainer/VBoxContainer/HBoxContainer/Panel/MarginContainer/HBoxContainer/TextureRect.texture = load("res://dialogue/" + face + ".png")
