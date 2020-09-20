@@ -20,7 +20,7 @@ position = Vector2( 180.109, 397.299 )
 position = Vector2( 179.049, 317.839 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( -439.063, 371.356 )
+position = Vector2( -499.539, 371.356 )
 
 [node name="Button" parent="." instance=ExtResource( 3 )]
 position = Vector2( -307.375, 411.701 )
