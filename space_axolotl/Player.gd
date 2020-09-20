@@ -18,6 +18,7 @@ var dying_time = 0
 var facing = Vector2()
 
 var holding = null
+var immobile = false
 
 
 # Called when the node enters the scene tree for the first time.
@@ -25,6 +26,8 @@ func _ready():
 	facing = Vector2(1, 0)
 	dying = false
 	holding = null
+	immobile = false
+	$AnimatedSprite.play("idle")
 	if pushes_buttons:
 		add_to_group("pushes_buttons")
 
@@ -39,6 +42,9 @@ func _start_dying():
 	dying_time = 0
 
 func _physics_process(delta):
+	if immobile:
+		return
+	
 	if dying:
 		# play slow falling animation
 		print(motion.y)
@@ -54,7 +60,7 @@ func _physics_process(delta):
 	motion.y += gravity
 	
 	# process interacting
-	if Input.is_action_just_pressed("ui_accept"):
+	if Input.is_action_just_pressed("ui_accept") and not immobile:
 		if holding:
 			var unhold_pos = position + $PlayerInteractBox.position + 96*facing
 			unhold_pos.y += -32

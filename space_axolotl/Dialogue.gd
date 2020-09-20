@@ -1,4 +1,4 @@
-extends Control
+extends CanvasLayer
 
 
 # Declare member variables here. Examples:
@@ -16,3 +16,9 @@ func _ready():
 
 func set_text(text):
 	$MarginContainer/VBoxContainer/HBoxContainer/Panel/MarginContainer/HBoxContainer/Label.text = text
+	
+func set_visible(visible):
+	$MarginContainer.visible = visible
+	
+#func set_face():
+#	$MarginContainer/VBoxContainer/HBoxContainer/Panel/MarginContainer/HBoxContainer/TextureRect.texture = 
