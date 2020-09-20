@@ -32,6 +32,11 @@ var dialogue = [
 	]
 ]
 
+var faces = [
+	["Jude0", "Eva2", "Jude3"],
+	["Eva2", "Jude3", "Eva2", "Jude0", "Eva1", "Jude0", "Eva3", "Jude0", "Eva2", "Jude0", "Eva1", "Eva0", "Jude3", "Eva0", "Jude2", "Eva0", "Jude0"]
+]
+
 var dialogue_section = 0
 var dialogue_index = 0
 
@@ -50,6 +55,7 @@ func _ready():
 func _process(delta):
 	if dialogue_index < len(dialogue[dialogue_section]):
 		$Dialogue.set_text(dialogue[dialogue_section][dialogue_index])
+		$Dialogue.set_face(faces[dialogue_section][dialogue_index])
 	if Input.is_action_just_pressed("ui_accept"):
 		dialogue_index += 1
 		if dialogue_index >= len(dialogue[dialogue_section]):
