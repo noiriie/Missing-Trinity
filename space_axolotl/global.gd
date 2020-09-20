@@ -1,7 +1,7 @@
 extends Node
 
 var current_scene = null
-var Player_has_thruster = false
+var has_thruster = false
 
 func _ready():
 	var root = get_tree().get_root()
