@@ -60,7 +60,8 @@ func _physics_process(delta):
 	motion.y += gravity
 	
 	# process interacting
-	if Input.is_action_just_pressed("ui_accept") and not immobile:
+	if Input.is_action_just_pressed("ui_accept"):
+		print(holding)
 		if holding:
 			var unhold_pos = position + $PlayerInteractBox.position + 96*facing
 			unhold_pos.y += -32
@@ -71,7 +72,7 @@ func _physics_process(delta):
 				if body == self:
 					continue
 				
-				if body.is_in_group("interactable") and not holding:
+				if body.is_in_group("boxes") and not holding:
 					holding = body
 					holding.interact_begin()
 					break

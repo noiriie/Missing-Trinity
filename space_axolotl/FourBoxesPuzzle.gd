@@ -71,10 +71,13 @@ func _on_Player_dead():
 
 
 func _on_DialogueTrigger_body_entered(body):
-	if body.name != "Player":
+	if body.name != "Player" or dialogue_section != 0:
 		return
 	dialogue_index = 0
 	dialogue_section = 1
 	$Player.immobile = true
 	$Dialogue.set_visible(true)
+	$NoahForest.visible = true
+	$PodClosed.visible = false
+	$PodOpen.visible = true
 	

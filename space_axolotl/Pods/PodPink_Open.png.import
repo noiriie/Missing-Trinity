@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/PodPink_Open.png-b38f8eb1dfa4dd69532fa6553d72323a.stex"
+path="res://.import/PodPink_Open.png-8069406c3b44edfd4dd9e88d59e1ec41.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://PodPink_Open.png"
-dest_files=[ "res://.import/PodPink_Open.png-b38f8eb1dfa4dd69532fa6553d72323a.stex" ]
+source_file="res://Pods/PodPink_Open.png"
+dest_files=[ "res://.import/PodPink_Open.png-8069406c3b44edfd4dd9e88d59e1ec41.stex" ]
 
 [params]
 
