@@ -26,7 +26,7 @@ var dialogue = [
 		"I need to go check on the axolotls. I can’t let anything happen to them before we get \nback to Earth. They need to be ready for research.",
 		"Research? What kind of research?",
 		"I told you before the ship crashed, and you got upset. Maybe it’s better if you don’t know.",
-		"…",
+		". . . . .",
 		"I need to get back to the axolotls.",
 		"Fine. I’ll keeping searching for the singularity thruster."
 	]
