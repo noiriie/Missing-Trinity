@@ -4,7 +4,7 @@
 [ext_resource path="res://tsbackground.png" type="Texture" id=2]
 [ext_resource path="res://tslogo.png" type="Texture" id=3]
 [ext_resource path="res://tstextbox1.png" type="Texture" id=4]
-[ext_resource path="res://tstextbox.png" type="Texture" id=5]
+[ext_resource path="res://tstextbox0.png" type="Texture" id=5]
 
 [node name="Title_Screen_Main_Menu" type="Container"]
 anchor_right = 1.11133
@@ -31,33 +31,32 @@ margin_bottom = 600.0
 alignment = 1
 
 [node name="Game Logo" type="CenterContainer" parent="VBoxContainer"]
-margin_left = 80.0
-margin_top = 60.0
-margin_right = 1298.0
-margin_bottom = 694.0
-rect_scale = Vector2( 0.8, 0.8 )
+margin_right = 1218.0
+margin_bottom = 634.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Logo" type="TextureRect" parent="VBoxContainer/Game Logo"]
-margin_right = 1218.0
-margin_bottom = 634.0
+margin_left = 70.0
+margin_top = 40.0
+margin_right = 1288.0
+margin_bottom = 674.0
+rect_scale = Vector2( 0.75, 0.75 )
 texture = ExtResource( 3 )
 
 [node name="Play Button" type="CenterContainer" parent="VBoxContainer"]
-margin_left = 300.0
 margin_top = 638.0
-margin_right = 1517.31
+margin_right = 1218.0
 margin_bottom = 855.0
-rect_scale = Vector2( 0.5, 0.5 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Play" type="TextureButton" parent="VBoxContainer/Play Button"]
-margin_left = 159.0
-margin_top = -40.0
-margin_right = 1057.0
-margin_bottom = 177.0
+margin_left = 360.0
+margin_top = -100.0
+margin_right = 1258.0
+margin_bottom = 117.0
+rect_scale = Vector2( 0.4, 0.4 )
 texture_normal = ExtResource( 5 )
 texture_pressed = ExtResource( 4 )
 [connection signal="pressed" from="VBoxContainer/Play Button/Play" to="." method="_on_TextureButton_pressed"]

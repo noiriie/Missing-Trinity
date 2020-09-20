@@ -10,6 +10,7 @@ var buttons_pressed = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	buttons_pressed = 0 # Replace with function body.
+	$Platform.visible = false
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
