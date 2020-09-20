@@ -123,5 +123,6 @@ func _on_PlayerHitbox_body_entered(body):
 		_start_dying()
 
 func _on_PlayerHitbox_area_entered(area):
-	if area.name == "SceneChangeBox":
+	if area.name == "SceneChangeBox" or area.name == "SceneChangeBox2":
+		print("going to ", area)
 		get_tree().change_scene("res://" + area.target_scene + ".tscn")
