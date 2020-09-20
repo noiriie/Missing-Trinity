@@ -15,9 +15,9 @@ var dialogue = [
 	[
 		"Thank goodness I found you, Captain Noah! What happened?",
 		"Jude! I was about to ask you the same thing. We had a critical engine failure. Do you remember what happened?",
-		"I can’t remember anything about the crash, but the singularity thruster is missing",
-		"I haven’t seen her yet.",
-		"You keep looking for her. I’ll go back the way you came and start repairing the ship."
+		"I can't remember anything about the crash, but the singularity thruster is missing",
+		"I haven't seen her yet.",
+		"You keep looking for her. I'll go back the way you came and start repairing the ship."
 	]
 ]
 
