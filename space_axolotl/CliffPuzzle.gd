@@ -36,6 +36,7 @@ func _ready():
 	$Dialogue.set_visible(true)
 	$Dialogue.set_text(dialogue[0][0])
 	$Dialogue.set_face(faces[0][0])
+	$AudioStreamPlayer.play()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

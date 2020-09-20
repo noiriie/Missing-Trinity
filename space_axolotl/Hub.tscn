@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Desert.jpg" type="Texture" id=1]
 [ext_resource path="res://DesertTextures.tres" type="TileSet" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Dialogue.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Ship0.png" type="Texture" id=8]
 [ext_resource path="res://SceneChangeBox.tscn" type="PackedScene" id=9]
+[ext_resource path="res://actual_desert.ogg" type="AudioStream" id=10]
 
 [node name="Hub" type="Node2D"]
 script = ExtResource( 6 )
@@ -67,3 +68,6 @@ target_scene = "FourBoxesPuzzle"
 
 [node name="SceneChangeBox2" parent="." instance=ExtResource( 9 )]
 position = Vector2( 352, 368 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 10 )

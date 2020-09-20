@@ -27,6 +27,7 @@ func _ready():
 	$Player.immobile = true
 	$Dialogue.set_visible(true)
 	dialogue_index = 0
+	$AudioStreamPlayer.play()
 	if not Global.has_thruster:
 		dialogue_section = 0
 		$Dialogue.set_text(dialogue[0][0])
