@@ -1,11 +1,5 @@
 extends Node2D
 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-var temp_state = 0
-
 var dialogue = [
 	[
 		"Well, the ship doesn’t look too damaged, but I have to find the crew and the missing piece of the engine."
@@ -22,7 +16,7 @@ var dialogue_index = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	if temp_state == 0:
+	if not Global.has_thruster:
 		dialogue_index = 0
 		$Player.immobile = true
 		$Dialogue.set_visible(true)

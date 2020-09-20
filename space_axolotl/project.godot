@@ -36,6 +36,10 @@ config/name="space_axolotl"
 run/main_scene="res://ShipInterior.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+Global="*res://global.gd"
+
 [rendering]
 
 quality/driver/driver_name="GLES2"

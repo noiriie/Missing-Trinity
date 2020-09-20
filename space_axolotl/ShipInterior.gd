@@ -1,11 +1,5 @@
 extends Node2D
 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-var temp_state = 0
-
 var dialogue = [
 	[
 		"The spaceship crashed. The last thing I remember is launching from this alien planet. Apparently, we never made it into space.",
@@ -28,7 +22,7 @@ var dialogue_index = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$Axolotls.play("default")
-	if temp_state == 0:
+	if not Global.has_thruster:
 		$ShipNoah.visible = false
 		$ShipEva.visible = false
 		
@@ -56,7 +50,7 @@ func _process(delta):
 
 
 func _on_AxolotlTrigger_body_entered(body):
-	if body.name != "Player" or dialogue_section != 0 or temp_state != 0:
+	if body.name != "Player" or dialogue_section != 0 or Global.has_thruster:
 		return
 	dialogue_index = 0
 	dialogue_section = 1
