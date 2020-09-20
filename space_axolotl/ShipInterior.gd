@@ -31,6 +31,7 @@ var dialogue_index = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$Axolotls.play("default")
+	$SaveAxolotls.visible = false
 	if not Global.has_thruster:
 		dialogue_index = 0
 		$Player.immobile = true
@@ -58,10 +59,11 @@ func _process(delta):
 		if dialogue_index >= len(dialogue[dialogue_section]):
 			$Player.immobile = false
 			$Dialogue.set_visible(false)
-			
 			if dialogue_section == 1:
 				# move to the next scene
 				get_tree().change_scene("res://Hub.tscn")
+			if dialogue_section == 2:
+				$SaveAxolotls.visible = true
 
 
 func _on_AxolotlTrigger_body_entered(body):

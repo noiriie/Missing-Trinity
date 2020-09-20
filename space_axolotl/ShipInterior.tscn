@@ -1,10 +1,11 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://ShipInterior.png" type="Texture" id=1]
 [ext_resource path="res://EngineTextures.png" type="Texture" id=2]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://ShipTextures.png" type="Texture" id=4]
 [ext_resource path="res://SceneChangeBox.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Save.png" type="Texture" id=6]
 [ext_resource path="res://TankTextures.png" type="Texture" id=7]
 [ext_resource path="res://ShipInterior.gd" type="Script" id=8]
 [ext_resource path="res://Dialogue.tscn" type="PackedScene" id=9]
@@ -127,4 +128,8 @@ position = Vector2( 16, 248 )
 
 [node name="SceneChangeBox2" parent="." instance=ExtResource( 5 )]
 position = Vector2( 456, 264 )
+
+[node name="SaveAxolotls" type="Sprite" parent="."]
+position = Vector2( -120, 112 )
+texture = ExtResource( 6 )
 [connection signal="body_entered" from="AxolotlTrigger" to="." method="_on_AxolotlTrigger_body_entered"]
