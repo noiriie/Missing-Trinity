@@ -61,7 +61,6 @@ func _physics_process(delta):
 	
 	# process interacting
 	if Input.is_action_just_pressed("ui_accept"):
-		print(holding)
 		if holding:
 			var unhold_pos = position + $PlayerInteractBox.position + 96*facing
 			unhold_pos.y += -32
