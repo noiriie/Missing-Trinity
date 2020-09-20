@@ -2,6 +2,7 @@ extends RigidBody2D
 
 const UP = Vector2(0, -1)
 export var gravity = 300
+export var texture = "Shell"
 
 var motion = Vector2()
 var held = false
@@ -17,6 +18,7 @@ func _ready():
 	add_to_group("bodies")
 	add_to_group("boxes")
 	add_to_group("pushes_buttons")
+	$Sprite.texture = load("res://" + texture + ".png")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

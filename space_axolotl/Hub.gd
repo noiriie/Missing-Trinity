@@ -12,6 +12,10 @@ var dialogue = [
 	]
 ]
 
+var faces = [
+	["Jude0"]
+]
+
 var dialogue_section = 0
 var dialogue_index = 0
 
@@ -23,12 +27,14 @@ func _ready():
 		$Player.immobile = true
 		$Dialogue.set_visible(true)
 		$Dialogue.set_text(dialogue[0][0])
+		$Dialogue.set_face(faces[0][0])
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if dialogue_index < len(dialogue[dialogue_section]):
 		$Dialogue.set_text(dialogue[dialogue_section][dialogue_index])
+		$Dialogue.set_face(faces[dialogue_section][dialogue_index])
 	if Input.is_action_just_pressed("ui_accept"):
 		dialogue_index += 1
 		if dialogue_index >= len(dialogue[dialogue_section]):

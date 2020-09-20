@@ -1,16 +1,26 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://DesertTextures.tres" type="TileSet" id=2]
 [ext_resource path="res://Box.tscn" type="PackedScene" id=3]
 [ext_resource path="res://CoveTilesNew.tres" type="TileSet" id=4]
-[ext_resource path="res://Main.gd" type="Script" id=5]
+[ext_resource path="res://CliffPuzzle.gd" type="Script" id=5]
 [ext_resource path="res://SceneChangeBox.tscn" type="PackedScene" id=6]
 [ext_resource path="res://CoveDesat.jpg" type="Texture" id=7]
+[ext_resource path="res://ThrusterTexture.png" type="Texture" id=8]
+[ext_resource path="res://Dialogue.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Button.tscn" type="PackedScene" id=11]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 63.5696, 28.7653 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 27.312, 66.7074 )
 
 [node name="CliffPuzzle" type="Node2D"]
 script = ExtResource( 5 )
+
+[node name="Dialogue" parent="." instance=ExtResource( 9 )]
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
@@ -23,7 +33,7 @@ position = Vector2( 2.83163, -0.943878 )
 texture = ExtResource( 7 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 1252.3, 121.037 )
+position = Vector2( 78.0536, 184.033 )
 
 [node name="TileMap (Level)" type="TileMap" parent="."]
 tile_set = ExtResource( 4 )
@@ -39,7 +49,7 @@ tile_data = PoolIntArray( 524297, 0, 458754, 524298, 0, 458754, 524299, 0, 45875
 
 [node name="SceneChangeBox" parent="." instance=ExtResource( 6 )]
 position = Vector2( 1056.84, -5.8067 )
-target_scene = "TestScene"
+target_scene = "Hub"
 
 [node name="Button" parent="." instance=ExtResource( 11 )]
 position = Vector2( 1557.4, 315.852 )
@@ -50,7 +60,7 @@ position = Vector2( 1388, 315.5 )
 [node name="Boxes" type="Node2D" parent="."]
 
 [node name="Box" parent="Boxes" instance=ExtResource( 3 )]
-position = Vector2( 1540.65, 212.471 )
+position = Vector2( 392.862, 146.955 )
 
 [node name="Box2" parent="Boxes" instance=ExtResource( 3 )]
 position = Vector2( -394.472, -41.3613 )
@@ -75,8 +85,28 @@ collision_layer = 0
 collision_mask = 0
 format = 1
 tile_data = PoolIntArray( -65519, 2, 0 )
+
+[node name="Thruster" type="Area2D" parent="."]
+position = Vector2( 1143.91, 92.6535 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Thruster"]
+texture = ExtResource( 8 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Thruster"]
+shape = SubResource( 1 )
+
+[node name="Dialogue2" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dialogue2"]
+position = Vector2( 1062.37, 62.5573 )
+shape = SubResource( 2 )
 [connection signal="dead" from="Player" to="." method="_on_Player_dead"]
 [connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
 [connection signal="released" from="Button" to="." method="_on_Button_released"]
 [connection signal="pressed" from="Button2" to="." method="_on_Button_pressed"]
 [connection signal="released" from="Button2" to="." method="_on_Button_released"]
+[connection signal="body_entered" from="Thruster" to="." method="_on_Thruster_body_entered"]
+[connection signal="body_entered" from="Dialogue2" to="." method="_on_Dialogue2_body_entered"]
