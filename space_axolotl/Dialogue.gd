@@ -1,11 +1,6 @@
 extends CanvasLayer
 
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	set_text("EXAMPLE TEXT")
@@ -21,4 +16,4 @@ func set_visible(visible):
 	$MarginContainer.visible = visible
 	
 func set_face(face):
-	$MarginContainer/VBoxContainer/HBoxContainer/Panel/MarginContainer/HBoxContainer/TextureRect.texture = load("res://dialogue" + face + ".png")
+	$MarginContainer/VBoxContainer/HBoxContainer/Panel/MarginContainer/HBoxContainer/TextureRect.texture = load("res://dialogue/" + face + ".png")
