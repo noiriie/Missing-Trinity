@@ -1,10 +1,13 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://LeaveEnd2.png" type="Texture" id=1]
+[ext_resource path="res://TextureRect.gd" type="Script" id=2]
+[ext_resource path="res://LeaveEnd2a.gd" type="Script" id=3]
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -12,4 +15,6 @@ __meta__ = {
 [node name="TextureRect" type="TextureRect" parent="."]
 margin_right = 40.0
 margin_bottom = 40.0
+rect_scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 1 )
+script = ExtResource( 2 )
