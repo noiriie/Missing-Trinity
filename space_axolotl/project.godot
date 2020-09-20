@@ -36,14 +36,6 @@ config/name="space_axolotl"
 run/main_scene="res://Main.tscn"
 config/icon="res://icon.png"
 
-[autoload]
-
-global="*res://global.gd"
-
-[editor_plugins]
-
-enabled=PoolStringArray( "dialogs" )
-
 [rendering]
 
 quality/driver/driver_name="GLES2"

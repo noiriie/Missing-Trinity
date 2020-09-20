@@ -16,14 +16,14 @@ var dialogue = [
 		"The what?",
 		"The celestial axolotls. They were on the ship.",
 		"You mean the three creatures in the fish tank? They’re completely fine.",
-		"What a relief! If anything were to happen to them before we got them back to the research station on Earth… Well, you know.",
+		"What a relief! If anything were to happen to them before we got them back to the research \nstation on Earth… Well, you know.",
 		"No, I don’t know.",
 		"I told you about the axolotl research about 5 minutes before the ship crashed. Don’t you remember?",
 		"I don’t remember anything about the crash. I hit my head.",
 		"Oh, you poor thing! Are you okay?",
 		"I think so. I have a little headache, but I’m alright.",
-		"You don’t seem to be experiencing any major symptoms of head trauma. Well, expect for the memory loss. Your memories should return soon.",
-		"I need to go check on the axolotls. I can’t let anything happen to them before we get back to Earth. They need to be ready for research.",
+		"You don’t seem to be experiencing any major symptoms of head trauma. Well, expect for the \nmemory loss. Your memories should return soon.",
+		"I need to go check on the axolotls. I can’t let anything happen to them before we get \nback to Earth. They need to be ready for research.",
 		"Research? What kind of research?",
 		"I told you before the ship crashed, and you got upset. Maybe it’s better if you don’t know.",
 		"…",
@@ -88,6 +88,10 @@ func _on_DialogueTrigger_body_entered(body):
 	dialogue_section = 1
 	$Player.immobile = true
 	$Dialogue.set_visible(true)
-	$NoahForest.visible = true
+	$EvaIceCaves.visible = true
 	$PodClosed.visible = false
 	$PodOpen.visible = true
+
+
+func _on_Button2_pressed():
+	pass # Replace with function body.
