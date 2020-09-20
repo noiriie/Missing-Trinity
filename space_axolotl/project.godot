@@ -12,17 +12,17 @@ _global_script_classes=[ {
 "base": "Resource",
 "class": "DialogCharacterResource",
 "language": "GDScript",
-"path": "res://godot-simple-dialog-master/addons/dialogs/dialog_character_resource.gd"
+"path": "res://addons/dialogs/dialog_character_resource.gd"
 }, {
 "base": "Control",
 "class": "DialogNode",
 "language": "GDScript",
-"path": "res://godot-simple-dialog-master/addons/dialogs/dialog_node.gd"
+"path": "res://addons/dialogs/dialog_node.gd"
 }, {
 "base": "Resource",
 "class": "DialogResource",
 "language": "GDScript",
-"path": "res://godot-simple-dialog-master/addons/dialogs/dialog_resource.gd"
+"path": "res://addons/dialogs/dialog_resource.gd"
 } ]
 _global_script_class_icons={
 "DialogCharacterResource": "",

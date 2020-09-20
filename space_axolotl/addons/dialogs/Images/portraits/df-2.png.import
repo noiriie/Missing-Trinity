@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/placeholder-2.png-995cfd0f3e48ba6fb56d64c8a7f3a9f2.stex"
+path="res://.import/df-2.png-8921e45efc2af991d8db3ae3976c2807.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://godot-simple-dialog-master/addons/dialogs/Images/background/placeholder-2.png"
-dest_files=[ "res://.import/placeholder-2.png-995cfd0f3e48ba6fb56d64c8a7f3a9f2.stex" ]
+source_file="res://addons/dialogs/Images/portraits/df-2.png"
+dest_files=[ "res://.import/df-2.png-8921e45efc2af991d8db3ae3976c2807.stex" ]
 
 [params]
 
