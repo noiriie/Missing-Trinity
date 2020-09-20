@@ -64,14 +64,17 @@ func _on_Button_released():
 func _on_Player_dead():
 	get_tree().reload_current_scene()
 
-func _on_Dialogue_body_entered(body):
+
+func _on_Thruster_body_entered(body):
+	if body.name == "Player":
+		$Thruster.visible = false
+
+
+func _on_Dialogue2_body_entered(body):
 	if body.name != "Player" or dialogue_section != 0:
 		return
 	dialogue_index = 0
 	dialogue_section = 1
 	$Player.immobile = true
 	$Dialogue.set_visible(true)
-
-func _on_Thruster_body_entered(body):
-	if body.name == "Player":
-		$Thruster.visible = false
+	pass # Replace with function body.

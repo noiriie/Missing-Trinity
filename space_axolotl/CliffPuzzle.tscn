@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://DesertTextures.tres" type="TileSet" id=2]
@@ -13,6 +13,9 @@
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 63.5696, 28.7653 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 27.312, 66.7074 )
 
 [node name="CliffPuzzle" type="Node2D"]
 script = ExtResource( 5 )
@@ -84,7 +87,7 @@ format = 1
 tile_data = PoolIntArray( -65519, 2, 0 )
 
 [node name="Thruster" type="Area2D" parent="."]
-position = Vector2( 1477.11, 297.56 )
+position = Vector2( 1143.91, 92.6535 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -94,9 +97,16 @@ texture = ExtResource( 8 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Thruster"]
 shape = SubResource( 1 )
+
+[node name="Dialogue2" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dialogue2"]
+position = Vector2( 1062.37, 62.5573 )
+shape = SubResource( 2 )
 [connection signal="dead" from="Player" to="." method="_on_Player_dead"]
 [connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
 [connection signal="released" from="Button" to="." method="_on_Button_released"]
 [connection signal="pressed" from="Button2" to="." method="_on_Button_pressed"]
 [connection signal="released" from="Button2" to="." method="_on_Button_released"]
 [connection signal="body_entered" from="Thruster" to="." method="_on_Thruster_body_entered"]
+[connection signal="body_entered" from="Dialogue2" to="." method="_on_Dialogue2_body_entered"]
